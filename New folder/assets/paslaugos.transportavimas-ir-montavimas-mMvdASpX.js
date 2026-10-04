@@ -1,1 +1,0 @@
-import{r as e}from"./index-BmvICSLV.js";import{n as t}from"./services-Cu48zI5n.js";import{t as n}from"./service-detail-DuKokTUC.js";var r=e();function i(){return(0,r.jsx)(n,{service:t.installation})}export{i as component};
