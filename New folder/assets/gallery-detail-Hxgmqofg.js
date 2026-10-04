@@ -1,1 +1,0 @@
-var e=`/assets/gallery-kitchen-B11rz2Pq.jpg`,t=`/assets/gallery-wardrobe-BJFN89IS.jpg`,n=`/assets/gallery-detail-Dcuy3yoN.jpg`;export{t as n,e as r,n as t};
