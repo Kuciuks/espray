@@ -1,0 +1,56 @@
+{
+  "base_export": "espray-static-site.zip (2026-10-04)",
+  "base_homepage_sha256": "4d1173a1455d12e6efc00b0ae2a981bde4e16bc2daebb1109fd8cdbbcc40c49f",
+  "files": [
+    {
+      "destination": "assets/espray-original-logo.png",
+      "action": "ADD",
+      "bytes": 95520,
+      "sha256": "907118dcf117082e1689e8c43a2e89430e9824a67e62baf7cee0e95bad05f43d"
+    },
+    {
+      "destination": "assets/furniture-cabinetry-2-CCEkbwyp.jpg",
+      "action": "UNCHANGED COPY",
+      "bytes": 65284,
+      "sha256": "c20097894252fb5e105048a61afa54cc518dd15dae20af2f9a96dd1d0303e650"
+    },
+    {
+      "destination": "assets/furniture-kitchen-1-C58CPCYz.jpg",
+      "action": "UNCHANGED COPY",
+      "bytes": 399503,
+      "sha256": "b84268ae48aac0cfdd13bf801de1bfbbe04b15c84819d7ee8f5b7cac72fd6584"
+    },
+    {
+      "destination": "assets/furniture-kitchen-2-D8-pmafG.jpg",
+      "action": "UNCHANGED COPY",
+      "bytes": 105606,
+      "sha256": "58919566a40b0aaddc24fe9b9d9cdf3f6f960576c3e7162f5b41c8108bd7442b"
+    },
+    {
+      "destination": "assets/home-craft-hero-yTzN17L-.jpg",
+      "action": "UNCHANGED COPY",
+      "bytes": 107358,
+      "sha256": "0b85699e70d5ee183767e6501d3712b5c4cf0dae0741e101c7e504baeceb6a6d"
+    },
+    {
+      "destination": "assets/homepage-opening.css",
+      "action": "ADD",
+      "bytes": 3854,
+      "sha256": "3688c084eeb3a0205491d7cb499b1b91d5a8381524ece3314b84356fd7e93e89"
+    },
+    {
+      "destination": "assets/routes-CkoQFRWu.js",
+      "action": "REPLACE",
+      "bytes": 11494,
+      "sha256": "0fe577a04fab8f93bb960a543984219f41f1275c854274ec096200ec6932488f"
+    },
+    {
+      "destination": "index.html",
+      "action": "REPLACE",
+      "bytes": 21413,
+      "sha256": "030915b95dda6002c6790937b1a9ae94296d0b1d217c1db6ff6b269a22844dbb"
+    }
+  ],
+  "additional_js_chunks": [],
+  "notes": "Paths are relative to existing static website root. Keep all existing files not listed."
+}
