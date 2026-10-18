@@ -3,12 +3,24 @@
 .home-intro{position:fixed;inset:0;z-index:50;display:grid;place-items:center;pointer-events:none;background:var(--color-intro);animation:espray-intro-fade 2.2s ease-in-out both}
 .home-intro-logo{width:min(76%,480px);height:auto;animation:espray-intro-logo .7s ease-out both}
 .home-hero{position:relative;isolation:isolate;overflow:hidden;background:var(--color-ink);color:var(--color-glass)}
-.home-hero,.home-hero-content{min-height:calc(100svh - 144px)}
+:root .home-hero,:root .home-hero-content{min-height:calc(100svh - 65px)}
 .home-hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease-in-out}
 .home-hero-slide.is-active{opacity:1}
 .home-hero-slide img{height:100%;width:100%;object-fit:cover;object-position:62% center}
 #paslaugos .group img{transition:filter 1s ease,transform 1s ease}
-#paslaugos .group:hover img{filter:blur(6px);transform:scale(1.06)}
+#paslaugos .group:hover img{transform:scale(1.06)}
+#paslaugos .group:has(> div:last-child:hover) img,#paslaugos .group:focus-within img{filter:blur(6px)}
+#paslaugos>a{justify-content:center;pointer-events:none}
+#paslaugos>a>div:nth-last-child(2){position:absolute;top:24px;right:24px;left:24px}
+#paslaugos>a>div:last-child{position:absolute;top:50%;right:24px;left:24px;width:auto;max-width:32ch;margin-inline:auto;transform:translateY(-50%);text-align:center;pointer-events:none}
+#paslaugos>a>div:last-child h2{position:relative;display:inline-block;max-width:100%;font-size:clamp(1rem,2.7vw,1.4375rem);padding-bottom:.12em}
+#paslaugos>a>div:last-child h2 span{display:inline-block;transition:transform .5s ease}
+#paslaugos>a>div:last-child h2::after{position:absolute;right:0;bottom:0;left:0;z-index:1;height:2px;background:var(--color-glass);content:"";transform:scaleX(0);transform-origin:center;transition:transform .2s ease-out}
+#paslaugos .group:has(> div:last-child:hover) h2::after,#paslaugos .group:focus-within h2::after{transform:scaleX(1);transition-duration:.4s;transition-timing-function:ease-in-out}
+#paslaugos .group:has(> div:last-child:hover) h2 span,#paslaugos .group:focus-within h2 span{transform:translateY(-.5rem)}
+#paslaugos>a>div:last-child h2,#paslaugos>a>div:last-child p{pointer-events:auto;cursor:pointer}
+#paslaugos>a>div:last-child p{position:absolute;top:calc(100% + .75rem);left:50%;width:100%;max-width:100%;max-height:0;margin:0;overflow:hidden;opacity:0;font-size:clamp(.7rem,1.8vw,.8125rem);line-height:1.45;transform:translate(-50%,-.5rem);pointer-events:none;transition:max-height .5s ease,opacity .35s ease,transform .5s ease}
+#paslaugos .group:has(> div:last-child:hover)>div:last-child p,#paslaugos .group:focus-within>div:last-child p{max-height:20em;opacity:1;transform:translate(-50%,0);pointer-events:auto}
 .group .home-photo-hover{transition:filter 1s ease,transform 1s ease}
 .group:hover .home-photo-hover{filter:blur(3px);transform:scale(1.06)}
 .home-hero .home-photo-hover{filter:blur(3px)!important;transform:scale(1.03)!important;transition:filter 1s ease,transform 1s ease}
@@ -37,5 +49,4 @@
 @keyframes espray-intro-logo{from{opacity:0}to{opacity:1}}
 @media(min-width:640px){.home-hero-content{padding-inline:40px}.home-hero h1{font-size:58px}}
 @media(min-width:768px){.home-hero-content{padding:80px 64px 36px}.home-hero-content>div:first-child{padding-block:48px}.home-hero h1{font-size:76px}.home-hero h1+p{font-size:17px}.home-hero-content>div:last-child{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:48px}}
-@media(max-width:639px){.home-hero,.home-hero-content{min-height:max(650px,calc(100svh - 144px))}}
-@media(prefers-reduced-motion:reduce){.home-intro{display:none;animation:none}.home-intro-logo{animation:none}.home-hero-slide{transition:none}#paslaugos .group img,.group .home-photo-hover{filter:none!important;transform:none!important;transition:none}}
+@media(prefers-reduced-motion:reduce){.home-intro{display:none;animation:none}.home-intro-logo{animation:none}.home-hero-slide{transition:none}#paslaugos .group img,.group .home-photo-hover{transform:none!important;transition:none}#paslaugos>a>div:last-child h2 span,#paslaugos>a>div:last-child h2::after,#paslaugos>a>div:last-child p{transition:none}}
