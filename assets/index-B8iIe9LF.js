@@ -20179,7 +20179,6 @@ var a_ = ol()({
     ],
     links: [
       { rel: `stylesheet`, href: Qg },
-      { rel: `stylesheet`, href: `/assets/service-cards.css?v=1` },
       { rel: `icon`, href: `/favicon.png`, type: `image/png` },
     ],
   }),
