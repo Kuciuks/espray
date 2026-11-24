@@ -1685,68 +1685,91 @@ function Pt() {
     })
   );
 }
-var $ = [
-    {
-      text: "Spinteles gavome lygias kaip stiklas. Sumontavo per dieną, be dulkių pėdsakų.",
-      service: "Greta M. — butas Vilniuje",
-    },
+const serviceHighlights = [
+  ["Transportavimas", "Paruošiame baldų detales kelionei ir pristatome jas į sutartą vietą."],
+  [
+    "Dizainerės paslaugos",
+    "Interjero vizualizacijos padeda palyginti išdėstymą, spalvas ir medžiagas dar prieš įrengiant erdvę.",
   ],
-  Ft = 6e3,
-  It = 300;
-function Lt() {
-  let [e, t] = (0, p.useState)(0),
-    [n, r] = (0, p.useState)(!1),
-    [i, a] = (0, p.useState)(!1),
-    [o, s] = (0, p.useState)(!1);
-  ((0, p.useEffect)(() => {
-    let e = window.matchMedia(`(prefers-reduced-motion: reduce)`),
-      t = () => s(e.matches);
-    return (t(), e.addEventListener(`change`, t), () => e.removeEventListener(`change`, t));
-  }, []),
-    (0, p.useEffect)(() => {
-      if (i || document.hidden) return;
-      let e = window.setInterval(() => {
-        if (o) {
-          t((e) => (e + 1) % $.length);
-          return;
-        }
-        (r(!0),
-          window.setTimeout(() => {
-            (t((e) => (e + 1) % $.length), r(!1));
-          }, It));
-      }, Ft);
-      return () => window.clearInterval(e);
-    }, [i, o]));
-  let c = $[e % $.length];
-  return (0, Q.jsxs)(`div`, {
-    className: `col-span-12 flex flex-col items-center justify-center rounded-[26px] border border-line/70 bg-surface/70 p-8 text-center ring-1 ring-line/20 backdrop-blur-xl md:col-span-7`,
-    onMouseEnter: () => a(!0),
-    onMouseLeave: () => a(!1),
-    onFocusCapture: () => a(!0),
-    onBlurCapture: () => a(!1),
-    "data-testimonials-rotator": !0,
-    children: [
-      (0, Q.jsx)(`p`, {
-        className: `font-mono text-[10px] uppercase tracking-[0.2em] text-muted`,
-        children: `Atsiliepimai`,
-      }),
-      (0, Q.jsxs)(`div`, {
-        className: `testimonial-fade mt-4 flex min-h-[150px] w-full flex-col items-center justify-center transition-opacity duration-300 ${n ? `opacity-0` : `opacity-100`}`,
-        "aria-live": `polite`,
-        children: [
-          (0, Q.jsxs)(`blockquote`, {
-            className: `max-w-[34ch] text-[19px] leading-snug text-balance text-ink md:text-[22px]`,
-            children: [`„`, c.text, `"`],
+  [
+    "Baldų gamyba",
+    "Gaminame baldus pagal jūsų erdvės matmenis, nuo virtuvės spintelių iki drabužinių.",
+  ],
+  [
+    "MDF dažymas",
+    "MDF fasadams galite rinktis matinę ar blizgią apdailą ir spalvą iš RAL paletės.",
+  ],
+  [
+    "CNC frezavimas",
+    "Pagal brėžinius frezuojame griovelius, raštus ir sudėtingas formas MDF, medienoje bei faneroje.",
+  ],
+];
+
+function HomeServiceHighlights() {
+  const reviewGroupRef = p.useRef(null);
+
+  p.useEffect(() => {
+    const group = reviewGroupRef.current;
+    let frame = 0;
+
+    function updatePosition() {
+      frame = 0;
+      const { top, height } = group.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const maxShift = window.innerWidth >= 1024 ? 44 : 16.8;
+      const centerOffset = top + height / 2 - viewportHeight / 2;
+      const shift = Math.max(-maxShift, Math.min(maxShift, centerOffset * 0.073));
+      group.style.setProperty("--review-shift", shift.toFixed(2) + "px");
+    }
+
+    function schedulePosition() {
+      if (!frame) frame = requestAnimationFrame(updatePosition);
+    }
+
+    window.addEventListener("scroll", schedulePosition, { passive: true });
+    window.addEventListener("resize", schedulePosition);
+    schedulePosition();
+
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedulePosition);
+      window.removeEventListener("resize", schedulePosition);
+      group.style.removeProperty("--review-shift");
+    };
+  }, []);
+
+  return Q.jsx("div", {
+    className: "home-reviews",
+    id: "home-reviews-title",
+    ref: reviewGroupRef,
+    children: Q.jsxs("div", {
+      className: "home-reviews-panel",
+      children: [
+        Q.jsx("div", {
+          className: "home-reviews-track",
+          children: Q.jsx("ul", {
+            className: "home-reviews-list",
+            children: serviceHighlights.map(([topic, description]) =>
+              Q.jsxs(
+                "li",
+                {
+                  className: "home-review-card",
+                  children: [
+                    Q.jsx("span", { className: "home-review-badge", "aria-hidden": true }),
+                    Q.jsx("div", { children: description }),
+                    Q.jsx("p", { children: topic }),
+                  ],
+                },
+                topic,
+              ),
+            ),
           }),
-          (0, Q.jsx)(`p`, {
-            className: `mt-4 font-mono text-[11px] text-muted`,
-            children: c.service,
-          }),
-        ],
-      }),
-    ],
+        }),
+      ],
+    }),
   });
 }
+
 var Rt = [
   {
     title: `Baldų kūrimas ir projektavimas`,
@@ -1812,6 +1835,7 @@ function zt() {
             id: `paslaugos`,
             className: `mt-16`,
             children: [
+              (0, Q.jsx)(HomeServiceHighlights, {}),
               (0, Q.jsx)(`div`, {
                 className: `home-services-intro`,
                 children: (0, Q.jsx)(`p`, {
@@ -1901,7 +1925,7 @@ function zt() {
             className: `mt-3 grid grid-cols-12 gap-3`,
             children: [
               (0, Q.jsxs)(`div`, {
-                className: `col-span-12 flex flex-col justify-center rounded-[26px] border border-line/70 bg-surface/70 p-8 ring-1 ring-line/20 backdrop-blur-xl md:col-span-5`,
+                className: `col-span-12 flex flex-col justify-center rounded-[26px] border border-line/70 bg-surface/70 p-8 ring-1 ring-line/20 backdrop-blur-xl`,
                 children: [
                   (0, Q.jsx)(`p`, {
                     className: `font-mono text-[10px] uppercase tracking-[0.2em] text-muted`,
@@ -1947,7 +1971,6 @@ function zt() {
                   }),
                 ],
               }),
-              (0, Q.jsx)(Lt, {}),
             ],
           }),
           (0, Q.jsx)(`section`, {
