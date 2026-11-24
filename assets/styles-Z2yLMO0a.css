@@ -123,26 +123,19 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-paper: #07111d;
-    --color-ink: oklch(96.6% 0.005 85);
+    --color-paper: #0f0d0e;
+    --color-ink: #faf4da;
     --color-muted: oklch(78.5% 0.012 85);
-    --color-glass: #f7f8fb;
-    --color-surface: #07111d;
+    --color-glass: #faf4da;
+    --color-surface: #0f0d0e;
     --color-scrim: #03080f;
     --color-line: #a9864f4d;
     --color-accent: #c8a66a;
     --color-accent-deep: #d7bb83;
     --color-accent-muted: #a9864f;
-    --color-gradient-start: #071522;
-    --color-gradient-end: #02070d;
-    --color-cream: #f3eae0;
+    --color-cream: #faf4da;
     --color-cream-line: #07111d1f;
-    --color-cream-muted: #07111d9e;
-    --brand-background: linear-gradient(
-      180deg,
-      var(--color-gradient-start),
-      var(--color-gradient-end)
-    );
+    --color-cream-muted: #0f0d0e9e;
     --color-intro: #121118;
     --hero-shade: linear-gradient(90deg, #03080fc2 0%, #03080f73 48%, #03080f26 100%);
   }
@@ -159,17 +152,7 @@
   }
   :root,
   :host {
-    --hero-floor: linear-gradient(0deg, #03080fad, transparent 38%);
-  }
-  @supports (color: color-mix(in lab, red, red)) {
-    :root,
-    :host {
-      --hero-floor: linear-gradient(
-        0deg,
-        color-mix(in srgb, var(--color-scrim) 68%, transparent),
-        transparent 38%
-      );
-    }
+    --hero-floor: linear-gradient(to top, var(--color-paper) 2%, transparent 32%);
   }
   :root,
   :host {
@@ -435,7 +418,6 @@
   }
   body {
     background-color: var(--color-paper);
-    background-image: var(--brand-background);
     color: var(--color-ink);
     font-family: var(--font-sans);
   }
@@ -1447,14 +1429,14 @@
     background-color: oklch(57.7% 0.245 27.325);
   }
   .bg-foreground {
-    background-color: var(--color-ink);
+    background-color: var(--color-cream);
   }
   .bg-glass\/80 {
-    background-color: #f7f8fbcc;
+    background-color: #faf4dacc;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .bg-glass\/80 {
-      background-color: color-mix(in oklab, var(--color-glass) 80%, transparent);
+      background-color: color-mix(in oklab, var(--color-cream) 80%, transparent);
     }
   }
   .bg-muted {
@@ -1472,7 +1454,7 @@
     background-color: var(--color-paper);
   }
   .bg-paper\/70 {
-    background-color: #07111db3;
+    background-color: #0f0d0eb3;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .bg-paper\/70 {
@@ -1517,28 +1499,13 @@
     background-color: var(--color-surface);
   }
   .bg-surface\/50 {
-    background-color: #07111d80;
-  }
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-surface\/50 {
-      background-color: color-mix(in oklab, var(--color-surface) 50%, transparent);
-    }
+    background-color: var(--color-surface);
   }
   .bg-surface\/70 {
-    background-color: #07111db3;
-  }
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-surface\/70 {
-      background-color: color-mix(in oklab, var(--color-surface) 70%, transparent);
-    }
+    background-color: var(--color-surface);
   }
   .bg-surface\/80 {
-    background-color: #07111dcc;
-  }
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-surface\/80 {
-      background-color: color-mix(in oklab, var(--color-surface) 80%, transparent);
-    }
+    background-color: var(--color-surface);
   }
   .bg-transparent {
     background-color: #0000;
@@ -1906,7 +1873,7 @@
     color: oklch(57.7% 0.245 27.325);
   }
   .text-destructive-foreground {
-    color: oklch(98.4% 0.003 247.858);
+    color: var(--color-ink);
   }
   .text-foreground {
     color: var(--color-ink);
@@ -1915,7 +1882,7 @@
     color: var(--color-glass);
   }
   .text-glass\/80 {
-    color: #f7f8fbcc;
+    color: #faf4dacc;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .text-glass\/80 {
@@ -1923,7 +1890,7 @@
     }
   }
   .text-glass\/90 {
-    color: #f7f8fbe6;
+    color: #faf4dae6;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .text-glass\/90 {
@@ -1934,7 +1901,7 @@
     color: var(--color-ink);
   }
   .text-ink\/70 {
-    color: #f5f4f0b3;
+    color: #faf4dab3;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .text-ink\/70 {
@@ -1942,7 +1909,7 @@
     }
   }
   .text-ink\/75 {
-    color: #f5f4f0bf;
+    color: #faf4dabf;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .text-ink\/75 {
@@ -1950,7 +1917,7 @@
     }
   }
   .text-ink\/80 {
-    color: #f5f4f0cc;
+    color: #faf4dacc;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .text-ink\/80 {
@@ -1958,7 +1925,7 @@
     }
   }
   .text-ink\/90 {
-    color: #f5f4f0e6;
+    color: #faf4dae6;
   }
   @supports (color: color-mix(in lab, red, red)) {
     .text-ink\/90 {
@@ -2533,7 +2500,7 @@
       }
     }
     .hover\:bg-secondary\/80:hover {
-      background-color: #07111dcc;
+      background-color: #0f0d0ecc;
     }
     @supports (color: color-mix(in lab, red, red)) {
       .hover\:bg-secondary\/80:hover {
@@ -2541,7 +2508,7 @@
       }
     }
     .hover\:bg-surface\/95:hover {
-      background-color: #07111df2;
+      background-color: #0f0d0ef2;
     }
     @supports (color: color-mix(in lab, red, red)) {
       .hover\:bg-surface\/95:hover {
@@ -3611,8 +3578,9 @@
 :root {
   --radius: 1rem;
 }
+html,
 .brand-page-background {
-  background-image: var(--brand-background);
+  background-color: var(--color-paper);
 }
 .brand-logo {
   font-family: var(--font-brand);
@@ -3788,7 +3756,7 @@
   inset-inline-start: 0;
 }
 .home-service-banner-text {
-  color: #f7f8fbd1;
+  color: #faf4dad1;
   max-width: 42ch;
   margin-top: 10px;
   font-size: 14px;
@@ -3800,14 +3768,14 @@
   }
 }
 .home-service-rows {
-  background: var(--color-cream);
+  background: #231f20;
   align-content: start;
   padding: 8px 28px 12px;
   display: grid;
 }
 .home-service-row {
   min-height: 96px;
-  color: var(--color-paper);
+  color: var(--color-ink);
   grid-template-columns: 40px minmax(0, 1fr) 24px;
   align-items: center;
   gap: 16px;
@@ -3816,20 +3784,20 @@
   display: grid;
 }
 .home-service-row + .home-service-row {
-  border-top: 1px solid var(--color-cream-line);
+  border-top: 1px solid var(--color-line);
 }
 .home-service-row:hover {
-  background: #07111d0a;
+  background: #faf4da0a;
 }
 @supports (color: color-mix(in lab, red, red)) {
   .home-service-row:hover {
-    background: color-mix(in srgb, var(--color-paper) 4%, transparent);
+    background: color-mix(in srgb, var(--color-ink) 4%, transparent);
   }
 }
 .home-service-row-icon {
   width: 32px;
   height: 32px;
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 .home-service-row-body {
   gap: 4px;
@@ -3841,7 +3809,7 @@
   font-weight: 500;
 }
 .home-service-row-text {
-  color: var(--color-cream-muted);
+  color: var(--color-muted);
   font-size: 13.5px;
   line-height: 1.5;
 }
@@ -3855,7 +3823,7 @@
   transform: translate(4px);
 }
 .home-service-row:focus-visible {
-  outline: 2px solid var(--color-accent-muted);
+  outline: 2px solid var(--color-accent);
   outline-offset: -2px;
 }
 @media (width>=1024px) {
@@ -4208,4 +4176,250 @@
   50% {
     opacity: 0;
   }
+}
+
+/* Homepage review cards */
+.home-reviews {
+  margin-block: 2rem;
+}
+.home-reviews-track {
+  padding-inline: 18px;
+}
+.home-reviews-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  transform: translateX(var(--review-shift, 0px));
+}
+.home-review-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 13rem;
+  padding: clamp(1rem, 2.5vw, 1.75rem);
+  padding-inline-start: 3.75rem;
+  border-radius: 1.125rem;
+  background: #231f20;
+  color: #faf4da;
+}
+.home-review-badge {
+  position: absolute;
+  top: 0.9rem;
+  inset-inline-start: -0.75rem;
+  width: 4rem;
+  aspect-ratio: 1;
+  background-image: url("/assets/review-service-badges.png");
+  background-repeat: no-repeat;
+  background-size: var(--badge-scale, 500%) auto;
+  background-position: var(--badge-position, 0%) center;
+}
+.home-review-card:nth-child(1) .home-review-badge {
+  --badge-scale: 474%;
+}
+.home-review-card:nth-child(2) .home-review-badge {
+  --badge-scale: 525%;
+  --badge-position: 25.7%;
+}
+.home-review-card:nth-child(3) .home-review-badge {
+  --badge-position: 50.1%;
+}
+.home-review-card:nth-child(4) .home-review-badge {
+  --badge-position: 74.7%;
+}
+.home-review-card:nth-child(5) .home-review-badge {
+  --badge-scale: 491%;
+  --badge-position: 100%;
+}
+.home-review-card blockquote {
+  line-height: 1.5;
+}
+.home-review-card p {
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+@media (min-width: 64rem) {
+  .home-reviews-track {
+    display: flex;
+    justify-content: center;
+    margin-inline: calc(50% - 50vw);
+    overflow: clip;
+    padding: 0;
+    padding-bottom: 8px;
+  }
+  .home-reviews-list {
+    flex: none;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 430px;
+    align-items: start;
+    gap: 64px;
+  }
+  .home-review-card {
+    min-height: 12rem;
+    border-radius: 1rem;
+  }
+  .home-review-card:nth-child(1) {
+    margin-block-start: 172px;
+  }
+  .home-review-card:nth-child(2) {
+    margin-block-start: 129px;
+  }
+  .home-review-card:nth-child(3) {
+    margin-block-start: 86px;
+  }
+  .home-review-card:nth-child(4) {
+    margin-block-start: 43px;
+  }
+}
+@media (max-width: 47.999rem) {
+  .home-reviews-list {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-reviews-list {
+    transform: none;
+  }
+}
+
+/* Shared site footer */
+.site-footer {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.site-footer-inner {
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding: 1.5rem;
+  text-align: start;
+}
+.site-footer-brand {
+  display: inline-block;
+  color: var(--color-accent);
+  font-family: var(--font-brand);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+.site-footer-nav {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding-block: clamp(1.75rem, 4vw, 3.5rem);
+  font-weight: 500;
+}
+.site-footer-nav h2 {
+  margin-bottom: 1.25rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.site-footer-nav ul {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+}
+.site-language-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.site-language-switch button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  padding-inline: 0.65rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+.site-language-switch button:hover,
+.site-language-switch button[aria-pressed="true"] {
+  border-color: var(--color-accent);
+  color: var(--color-accent-deep);
+}
+.site-language-switch button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.site-language-flag {
+  display: inline-block;
+  width: 1.5rem;
+  aspect-ratio: 3 / 2;
+}
+.flag-lt {
+  background: linear-gradient(#fdb913 33.33%, #006a44 33.33% 66.67%, #c1272d 66.67%);
+}
+.flag-en {
+  background:
+    linear-gradient(90deg, transparent 41%, #c8102e 41% 59%, transparent 59%),
+    linear-gradient(transparent 36%, #c8102e 36% 64%, transparent 64%),
+    linear-gradient(90deg, transparent 36%, white 36% 64%, transparent 64%),
+    linear-gradient(transparent 28%, white 28% 72%, transparent 72%),
+    linear-gradient(34deg, transparent 44%, white 44% 56%, transparent 56%),
+    linear-gradient(-34deg, transparent 44%, white 44% 56%, transparent 56%) #012169;
+}
+.site-footer a {
+  overflow-wrap: anywhere;
+  text-underline-offset: 0.2em;
+}
+.site-footer a:hover {
+  color: var(--color-accent-deep);
+  text-decoration: underline;
+}
+.site-footer a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.site-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 2rem;
+  padding-top: clamp(1.25rem, 3vw, 2.5rem);
+  border-top: 1px dotted var(--color-accent-muted);
+}
+.site-footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+@media (max-width: 47.999rem) {
+  .site-footer-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .site-footer-nav > :last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Crisp offset backdrop for content panels and primary actions */
+:is(
+  .home-service-category,
+  .home-review-card,
+  main
+    :is(a, article, div, figure, section)[class*="rounded-["]:is(
+      [class~="border"],
+      [class~="overflow-hidden"],
+      [class*="bg-surface"]
+    )
+) {
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000),
+    8px 8px 0 #362f30;
+}
+main :is(a, button)[class~="bg-accent"][class~="rounded-full"] {
+  box-shadow:
+    var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000),
+    5px 5px 0 #362f30;
 }

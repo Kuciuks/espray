@@ -1,9 +1,10 @@
+import { initSiteLanguage } from "./site-language.js";
 const __vite__mapDeps = (
   i,
   m = __vite__mapDeps,
   d = m.f ||
     (m.f = [
-      "assets/routes-CbFeQjf7.js",
+      "assets/routes-CbFeQjf7.js?v=service-highlights",
       "assets/quote-form-7Wk8P6Kp.js",
       "assets/services-BnB1S4vk.js",
       "assets/kontaktai-Jh8wtVxh.js",
@@ -19939,7 +19940,7 @@ var Jg = class extends Zh {
     ),
     (0, z.jsx)(Xg.Provider, { value: e, children: t })
   ),
-  Qg = `/assets/styles-Z2yLMO0a.css?v=hero-full-vh-2`;
+  Qg = `/assets/styles-Z2yLMO0a.css?v=offset-backdrops`;
 function $g(e, t = {}) {
   if (typeof window > `u`) return;
   window.__lovableEvents?.captureException?.(
@@ -20048,37 +20049,124 @@ function t_() {
     ],
   });
 }
+const footerColumns = [
+  [
+    "Meniu",
+    [
+      ["Apie mus", "/apie"],
+      ["Paslaugos", "/paslaugos"],
+      ["Galerija", "/galerija"],
+      ["Kontaktai", "/kontaktai"],
+    ],
+  ],
+  [
+    "Paslaugos",
+    [
+      ["Dizainerės paslaugos", "/paslaugos/dizaineres-paslaugos"],
+      ["Projektavimas", "/paslaugos/projektavimas"],
+      ["Baldų gamyba", "/paslaugos/baldu-gamyba"],
+      ["Transportavimas ir montavimas", "/paslaugos/transportavimas-ir-montavimas"],
+      ["MDF dažymas", "/paslaugos/mdf-dazymas"],
+      ["CNC frezavimas", "/paslaugos/cnc-frezavimas"],
+    ],
+  ],
+  [
+    "Kontaktai",
+    [
+      ["Nerijus Novikovas"],
+      ["Velžio kel. 48, LT-36148 Panevėžys"],
+      ["+370 607 91028", "tel:+37060791028"],
+      ["nerijus@espray.lt", "mailto:nerijus@espray.lt"],
+    ],
+  ],
+];
+const footerLanguages = [
+  ["lt", "Lietuvių", "LT"],
+  ["en", "English", "EN"],
+];
+
 function n_() {
-  return (0, z.jsx)(`footer`, {
-    className: `border-t border-line/70`,
-    children: (0, z.jsxs)(`div`, {
-      className: `mx-auto flex max-w-[1200px] flex-col justify-between gap-4 px-6 py-8 md:flex-row md:items-center`,
+  R.useEffect(initSiteLanguage, []);
+  return z.jsx("footer", {
+    className: "site-footer",
+    children: z.jsxs("div", {
+      className: "site-footer-inner",
       children: [
-        (0, z.jsx)(`span`, {
-          className: `brand-logo text-[15px] uppercase tracking-[0.3em]`,
-          children: `Espray`,
+        z.jsx("a", { className: "site-footer-brand", href: "/", children: "ESPRAY" }),
+        z.jsx("nav", {
+          className: "site-footer-nav",
+          "aria-label": "Puslapio apačios nuorodos",
+          children: footerColumns.map(([heading, items]) =>
+            z.jsxs(
+              "div",
+              {
+                children: [
+                  z.jsx("h2", { children: heading }),
+                  z.jsx("ul", {
+                    children: items.map(([label, href]) =>
+                      z.jsx(
+                        "li",
+                        {
+                          children: href ? z.jsx("a", { href, children: label }) : label,
+                        },
+                        label,
+                      ),
+                    ),
+                  }),
+                  heading === "Kontaktai"
+                    ? z.jsx("div", {
+                        className: "site-language-switch",
+                        role: "group",
+                        "aria-label": "Svetainės kalba",
+                        children: footerLanguages.map(([locale, label, code]) =>
+                          z.jsxs(
+                            "button",
+                            {
+                              type: "button",
+                              "data-site-language": locale,
+                              "aria-label": label,
+                              "aria-pressed": locale === "lt",
+                              lang: locale,
+                              children: [
+                                z.jsx("span", {
+                                  className: "site-language-flag flag-" + locale,
+                                  "aria-hidden": true,
+                                }),
+                                code,
+                              ],
+                            },
+                            locale,
+                          ),
+                        ),
+                      })
+                    : null,
+                ],
+              },
+              heading,
+            ),
+          ),
         }),
-        (0, z.jsx)(`p`, {
-          className: `font-mono text-[11px] text-muted`,
-          children: `© 2026 · Nestandartiniai baldai · Panevėžys`,
-        }),
-        (0, z.jsxs)(`div`, {
-          className: `flex gap-6 text-[13px] text-muted`,
+        z.jsxs("div", {
+          className: "site-footer-bottom",
           children: [
-            (0, z.jsx)(nl, {
-              to: `/paslaugos`,
-              className: `transition-colors hover:text-ink`,
-              children: `Paslaugos`,
-            }),
-            (0, z.jsx)(nl, {
-              to: `/galerija`,
-              className: `transition-colors hover:text-ink`,
-              children: `Galerija`,
-            }),
-            (0, z.jsx)(`a`, {
-              href: `tel:+37060791028`,
-              className: `transition-colors hover:text-ink`,
-              children: `+370 607 91028`,
+            z.jsx("p", { children: "© 2026 ESPRAY · Panevėžys" }),
+            z.jsxs("ul", {
+              className: "site-footer-socials",
+              "aria-label": "Socialiniai tinklai",
+              children: [
+                z.jsx("li", {
+                  children: z.jsx("a", {
+                    href: "https://www.instagram.com/_efurniture_baldu_gamyba",
+                    children: "Instagram",
+                  }),
+                }),
+                z.jsx("li", {
+                  children: z.jsx("a", {
+                    href: "https://www.facebook.com/share/165pxc8BnP/",
+                    children: "Facebook",
+                  }),
+                }),
+              ],
             }),
           ],
         }),
@@ -20179,7 +20267,6 @@ var a_ = ol()({
     ],
     links: [
       { rel: `stylesheet`, href: Qg },
-      { rel: `stylesheet`, href: `/assets/service-cards.css?v=1` },
       { rel: `icon`, href: `/favicon.png`, type: `image/png` },
     ],
   }),
@@ -20299,7 +20386,7 @@ var c_ = `modulepreload`,
       ],
     }),
     component: ul(
-      () => d_(() => import(`./routes-CbFeQjf7.js`), __vite__mapDeps([0, 1, 2])),
+      () => d_(() => import(`./routes-CbFeQjf7.js?v=service-highlights`), __vite__mapDeps([0, 1, 2])),
       `component`,
     ),
   }),
