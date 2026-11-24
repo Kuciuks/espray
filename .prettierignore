@@ -1,0 +1,15 @@
+# Reference exports and historical patch packages must remain intact.
+reference/
+espray-opening-compiled-patch-v2/
+# Installed tools, editor configuration and project instructions are not site code.
+.agents/
+.claude/
+.codex/
+.tools/
+.tmp/
+.vscode/
+.git/
+node_modules/
+AGENTS.md
+skills-lock.json
+package-lock.json
